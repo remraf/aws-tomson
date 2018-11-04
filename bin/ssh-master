@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# name: ssh-master
+# description: ssh to head node of cfncluster cluster
+# usage: ssh-master [<options>] <cluster>
+#
+###
+
+CLUSTER=$1
+SSH_KEY=~/.ssh/berry02-key-ec2.pem
+
+if [[ $# < 1 ]]; then
+    echo "$0: Argument required"
+    exit 1
+elif [[ $# > 1 ]]; then
+    echo "$0: Excess arguments"
+else
+    cfncluster ssh $CLUSTER -i $SSH_KEY
+fi

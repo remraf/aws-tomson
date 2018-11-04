@@ -11,9 +11,8 @@ PKGS=(
     )
 
 ## update os
-apt update
-apt -y upgrade
+yum update -y
 
 ## install packages
-apt install -y ${PKGS[@]}
+yum install -y ${PKGS[@]}
 
